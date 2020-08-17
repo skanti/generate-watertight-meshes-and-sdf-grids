@@ -3,7 +3,10 @@ Generate watertight meshes and sdf grids from degenerate, non-manifold meshes
 
 ## Example pics
 
-| SDF grid           | Inside View |
+
+
+
+| SDF grid           | Inside View (blue = inside, red = outside |
 :-------------------------:|:-------------------------:|
 ![](pics/sofa0a.png)  |  ![](pics/sofa0b.png) 
 ![](pics/sofa1a.png)  |  ![](pics/sofa1b.png) 
@@ -18,6 +21,11 @@ Generate watertight meshes and sdf grids from degenerate, non-manifold meshes
 - Output from Marching Cubes is garantueed to be watertight
 - High resolution (grid dimension > 1000) possible
 
+## Dependencies
+
+- CUDA
+- glm
+- Eigen3
 
 ## How-To Install
 

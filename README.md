@@ -61,6 +61,13 @@ Usage:
 
 ```
 
+## What's the output of this?
+
+It's a binary file that contains the sdf grid information as `resolution`, `grid dimensions`, `grid2world matrix`, `sdf values`.
+
+Have a look at `src/base/Vox.h` or `src/base/Vox.py` for `cpp` and `python` readers and writers.
+
+
 ## How does it work?
 
 It is based on a 3D watershed/floodfill algorithm, where from each corner of the grid you <i> fill water </i> in the grid until you reach a stationary state where

@@ -15,6 +15,7 @@ include_directories(libs/glm/)
 include_directories(libs/glm/)
 include_directories(src)
 include_directories(src/base/)
+include_directories("${CUDA_INCLUDE_DIRS}")
 # <-
 
 # -> cuda compilation

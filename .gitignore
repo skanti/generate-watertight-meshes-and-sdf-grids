@@ -1,0 +1,20 @@
+# hidden files
+.*
+
+# data
+data
+
+# generated
+cache
+build
+main
+cmake*
+
+# big stuff
+*.vox
+*.ply
+
+
+# exception
+!.gitignore
+

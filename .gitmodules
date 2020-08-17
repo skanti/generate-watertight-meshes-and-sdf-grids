@@ -1,0 +1,6 @@
+[submodule "libs/glm"]
+	path = libs/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "libs/eigen"]
+	path = libs/eigen
+	url = https://gitlab.com/libeigen/eigen.git

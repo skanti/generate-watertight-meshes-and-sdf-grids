@@ -3,7 +3,7 @@ import struct
 import numpy as np
 
 class Vox:
-    def __init__(self, dims=None, res=None, grid2world=None, sdf=None, pdf=None):
+    def __init__(self, dims=None, res=None, grid2world=None, sdf=None):
         self.dims = dims
         self.res = res
         self.grid2world = grid2world
@@ -28,7 +28,7 @@ def load_vox(filename):
 
     # -> sdf 1-channel
     offset = 4*(3 + 1 + 16)
-    s.sdf = np.fromfile(filename, count=n_elems, dtype=np.float32, offset=offset).reshape([1, s.dims[2], s.dims[1], s.dims[0]])
+    s.sdf = np.fromfile(filename, count=n_elems, dtype=np.float32, offset=offset).reshape([s.dims[2], s.dims[1], s.dims[0]])
     # <-
 
 

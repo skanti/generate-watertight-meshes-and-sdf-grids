@@ -9,8 +9,8 @@ Generate watertight meshes and sdf grids from degenerate, non-manifold meshes
 
 | SDF grid           | Inside View (blue = inside, red = outside | Marching Cubes output |
 :-------------------------:|:-------------------------:|:-------------------------:|
-![](pics/sofa0a.png)  |  ![](pics/sofa0b.png) |  ![](pics/sofa1_mc.png) 
-![](pics/sofa1a.png)  |  ![](pics/sofa1b.png) |  ![](pics/sofa0_mc.png) 
+![](pics/sofa0a.png)  |  ![](pics/sofa0b.png) |  ![](pics/sofa0_mc.png) 
+![](pics/sofa1a.png)  |  ![](pics/sofa1b.png) |  ![](pics/sofa1_mc.png) 
 ![](pics/chair0a.png)  |  ![](pics/chair0b.png) |  ![](pics/chair0_mc.png) 
 ![](pics/chair1a.png)  |  ![](pics/chair1b.png) |  ![](pics/chair1_mc.png) 
 

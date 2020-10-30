@@ -6,12 +6,13 @@ Generate watertight meshes and sdf grids from degenerate, non-manifold meshes
 
 
 
-| SDF grid           | Inside View (blue = inside, red = outside |
-:-------------------------:|:-------------------------:|
-![](pics/sofa0a.png)  |  ![](pics/sofa0b.png) 
-![](pics/sofa1a.png)  |  ![](pics/sofa1b.png) 
-![](pics/chair0a.png)  |  ![](pics/chair0b.png) 
-![](pics/chair1a.png)  |  ![](pics/chair1b.png) 
+
+| SDF grid           | Inside View (blue = inside, red = outside | Marching Cubes output |
+:-------------------------:|:-------------------------:|:-------------------------:|
+![](pics/sofa0a.png)  |  ![](pics/sofa0b.png) |  ![](pics/sofa0_mc.png) 
+![](pics/sofa1a.png)  |  ![](pics/sofa1b.png) |  ![](pics/sofa1_mc.png) 
+![](pics/chair0a.png)  |  ![](pics/chair0b.png) |  ![](pics/chair0_mc.png) 
+![](pics/chair1a.png)  |  ![](pics/chair1b.png) |  ![](pics/chair1_mc.png) 
 
 
 ## Advantages
@@ -35,6 +36,10 @@ mkdir build
 cd build
 cmake ..
 make -j 4
+
+cd ..
+cd python_scripts
+pip install -r requirements.txt
 ```
 
 ## How-To Run
@@ -61,11 +66,13 @@ Usage:
 
 ```
 
+Checkout `python_scripts/marching_cubes.py` to generate meshes from `.vox` files
+
 ## What's the output of this?
 
 It's a binary file that contains the sdf grid information as `resolution`, `grid dimensions`, `grid2world matrix`, `sdf values`.
 
-Have a look at `src/base/Vox.h` or `src/base/Vox.py` for `cpp` and `python` readers and writers.
+Have a look at `src/base/Vox.h` or `python_scripts/Vox.py` for `cpp` and `python` readers and writers.
 
 
 ## How does it work?

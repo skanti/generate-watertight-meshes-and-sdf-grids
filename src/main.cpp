@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include <eigen3/Eigen/Dense>
+#include <Eigen/Dense>
 
 #include "Vox.h"
 #include "voxelize_project.h"
@@ -18,6 +18,7 @@ struct Args {
 	float res;
 	int trunc;
 	int pad;
+  bool normalize;
 	bool verbose;
 } args;
 
@@ -29,6 +30,18 @@ class World {
 		void run() {
 
 			load_mesh(args.filename_in, mesh);
+      if (args.normalize) {
+        Eigen::Vector3f vmin = mesh.V.rowwise().minCoeff();
+        Eigen::Vector3f vmax = mesh.V.rowwise().maxCoeff();
+
+        Eigen::Vector3f center = 0.5*(vmax + vmin);
+        Eigen::Vector3f extent = (vmax - vmin);
+
+        mesh.V = mesh.V.colwise() - center;
+        mesh.V = mesh.V.array().colwise() / extent.array();
+
+
+      }
 			auto vox = voxelize<vtype>(mesh.V, mesh.F, args.res, ID_SOLID, ID_WALL, args.pad, args.verbose);
 			Eigen::Array3i dims = vox.dims;
 			int n_elems = dims(0)*dims(1)*dims(2);
@@ -78,6 +91,7 @@ void parse_args(int argc, char** argv) {
 		("r,res", "resolution", cxxopts::value(args.res)->default_value("0.002"))
 		("t,trunc", "surface truncation distance in voxels", cxxopts::value(args.trunc)->default_value("5"))
 		("p,pad", "outer padding for voxelgrid", cxxopts::value(args.pad)->default_value("5"))
+		("n,normalize", "normalize to unit cube?", cxxopts::value(args.normalize)->default_value("false"))
 		("v,verbose", "verbose", cxxopts::value(args.verbose)->default_value("false"))
 		("h,help", "Print usage");
 

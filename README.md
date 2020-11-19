@@ -21,6 +21,7 @@ Generate watertight meshes and sdf grids from degenerate, non-manifold meshes
 - Very fast though CUDA implementation
 - Output from Marching Cubes is garantueed to be watertight
 - High resolution (grid dimension > 1000) possible
+- **Very important:** This method generates *real* SDF grids - and not just TSDF grids. Rendering based techniques (for SDF generation) cannot handle thin structures and often give wrong SDF values for larger volumes
 
 ## Dependencies
 

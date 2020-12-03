@@ -5,7 +5,7 @@ project(watertight)
 set(CMAKE_VERBOSE_MAKEFILE 0)
 
 # dependencies
-find_package(CUDA 8.0 REQUIRED)
+find_package(CUDA REQUIRED)
 message(STATUS "Found CUDA ${CUDA_VERSION_STRING} at ${CUDA_TOOLKIT_ROOT_DIR}")
 
 find_package(Eigen3 3.3 REQUIRED)
